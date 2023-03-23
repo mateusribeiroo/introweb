@@ -23,38 +23,21 @@
 
 <template>
     <div class="place">
-        <div class="card" v-for="(item, index) in anime_list" :key="item.mal_id">
-            <h2 class="title">{{ index+1 }} {{ item.title }}</h2>
+        <div class="card text-bg-dark" v-for="(item, index) in anime_list" :key="item.mal_id">
+            <img  :src=item.images.jpg.image_url class="card-img" alt="...">
+
+            <div class="card-img-overlay">
+                <h5 class="card-title">{{ index }}: {{ item.title }}</h5>
+                <p class="card-text">{{ item.synopsis }}</p>
+                <p class="card-text"><small>{{ item.rank }}</small></p>
+            </div>>
         </div>
     </div>
 
 </template>
 
 <style scoped>
-    .card{
-        background-color: grey;
-        width: 10vw;
-        height: 10vh;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        padding: auto;
-
-        margin: 2rem;
-    }
-
     .place{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        align-content: space-between;
-    }
-
-    .title{
-        font-size: 1rem;
-        color: black;
+        padding: 1em;
     }
 </style>

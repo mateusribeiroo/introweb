@@ -5,7 +5,7 @@ import AnimeCard from './components/cards/AnimeCard.vue'
 
 <template>
   <header>
-
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
     <div class="wrapper">
       
     </div>

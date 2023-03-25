@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import AnimeCard from './components/cards/AnimeCard.vue'
+import HeaderBar from './components/HeaderBar.vue';
 </script>
 
 <template>
@@ -9,9 +9,8 @@ import AnimeCard from './components/cards/AnimeCard.vue'
     <div class="wrapper">
       
     </div>
-
   </header>
-
+  <HeaderBar />
 
 
   <RouterView />

@@ -23,7 +23,7 @@
 
 <template>
     <div class="place">
-        <div class="card text-bg-dark" v-for="(item, index) in anime_list" :key="item.mal_id">
+        <div class="anime_card card text-bg-dark" v-for="(item, index) in anime_list" :key="item.mal_id">
             <img  :src=item.images.jpg.image_url class="card-img" alt="...">
 
             <div class="card-img-overlay">
@@ -38,6 +38,13 @@
 
 <style scoped>
     .place{
-        padding: 1em;
+        
+        width: 100vw;
+    }
+
+    .anime_card{
+        width: 25%;
+        height: 10%;
+        margin: 2% 1%;
     }
 </style>

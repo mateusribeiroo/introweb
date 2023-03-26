@@ -1,7 +1,7 @@
 <script setup>
-  import AnimeCard from './cards/AnimeCard.vue';
+  import AnimeList from './cards/AnimeList.vue';
 </script>
 
 <template>
-  <AnimeCard />
+  <AnimeList />
 </template>

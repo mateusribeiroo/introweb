@@ -1,11 +1,18 @@
 <script>
     import api from "../../services/api";
-    import { onMounted, ref,  } from "vue"
+    import { onMounted, ref, computed } from "vue"
+    
+    let search_anime_field = ref("");
+    let anime_list = ref(); 
+
+    const animes_filtered = computed(() => {
+
+    })    
+
 
     export default({
         name: "AnimeCard",
         setup() {
-            let anime_list = ref([]);
 
             const fetchAnimes = async () => api.get("/anime?limit=20").then((response) => {
                 anime_list.value = response.data.data;
@@ -22,18 +29,17 @@
 </script>
 
 <template>
-    <div class="place">
-        <div class="anime_card card text-bg-dark" v-for="(item, index) in anime_list" :key="item.mal_id">
-            <img  :src=item.images.jpg.image_url class="card-img" alt="...">
-
-            <div class="card-img-overlay">
-                <h5 class="card-title">{{ index }}: {{ item.title }}</h5>
+    <div class="row row-cols-1 row-cols-md-3 g-4"  >
+        <div class="col" v-for="item in anime_list" :key="item.mal_id">
+            <div class="card">
+            <img :src=item.images.jpg.image_url class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ item.title }}</h5>
                 <p class="card-text">{{ item.synopsis }}</p>
-                <p class="card-text"><small>{{ item.rank }}</small></p>
-            </div>>
+            </div>
+            </div>
         </div>
     </div>
-
 </template>
 
 <style scoped>

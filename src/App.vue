@@ -1,19 +1,16 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HeaderBar from './components/HeaderBar.vue';
+import FooterBar from './components/FooterBar.vue';
 </script>
 
 <template>
-  <header>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
-    <div class="wrapper">
-      
-    </div>
-  </header>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
   <HeaderBar />
 
-
   <RouterView />
+  
+  <FooterBar />
 </template>
 
 <style scoped>

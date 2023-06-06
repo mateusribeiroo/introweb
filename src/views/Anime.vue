@@ -1,14 +1,23 @@
 <template>
-  
+    <div>
+        <div id="principal">
+            <img src="" alt="">
+            <h2>Nome do Anime</h2>
+        </div>
+
+        <div>
+            Resumo...
+        </div>
+
+        <div>
+            Eps
+            Notas
+        </div>
+    </div>
 </template>
 
-<script>
-export default {
-    name: 'Anime',
-    setup(){
-        
-    }
-}
+<script setup>
+ 
 </script>
 
 <style>

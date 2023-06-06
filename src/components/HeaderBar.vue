@@ -5,22 +5,15 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a class="navbar-brand" href="#">Hidden brand</a>
+            <router-link class="navbar-brand" to="#">Hidden brand</router-link>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                <router-link class="nav-link active" to="/" >HOME</router-link>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/about">About</a>
+                <router-link class="nav-link" to="/about">About</router-link>
               </li>
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="título..." aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Pesquisar</button>
-            </form>
-            <div class="spinner-border text-success ms-2" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
           </div>
         </div>
       </nav>

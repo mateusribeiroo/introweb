@@ -1,11 +1,14 @@
 <script setup>
   import AnimeCard from './AnimeCard.vue';
+  import Pagination  from './Pagination.vue'
   import api from '../services/api';
   import { computed, onMounted, ref } from 'vue';
   import { limitString } from '../util/strings/limitString';
+import PaginationVue from './Pagination.vue';
 
   let anime_list = ref([]); 
   let searchAnimeField = ref("");
+  let pagination = {};
 
   const fetchAnimes = async () => api.get("/anime?limit=50").then((response) => {
     anime_list.value = response.data.data;
@@ -37,4 +40,6 @@
       :jpg_image_url="item.images.jpg.image_url"
     />
   </div>
+
+  <Pagination />
 </template>

@@ -1,6 +1,6 @@
 <script setup>
     const stringLimit = 50;
-    
+
     let props = defineProps(['title', 'synopsis', 'jpg_image_url'])
 
     function readMoreandLess(e){

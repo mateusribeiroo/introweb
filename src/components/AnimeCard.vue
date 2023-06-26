@@ -1,7 +1,8 @@
+import { RouterLink } from 'vue-router';
 <script setup>
     const stringLimit = 50;
 
-    let props = defineProps(['title', 'synopsis', 'jpg_image_url'])
+    let props = defineProps(['title', 'synopsis', 'jpg_image_url', 'mal_id'])
 
     function readMoreandLess(e){
         console.log(e)
@@ -23,7 +24,7 @@
         <div class="card anime_card">
             <img :src=jpg_image_url class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">{{ title }}</h5>
+                <router-link :to="{name: 'anime', params: {id: mal_id }}"><h5 class="card-title">{{ title }}</h5></router-link>
                 <p class="card-text ">{{ synopsis.substring(0, stringLimit)}}</p>
                 <p hidden class="card-text ">{{synopsis}}</p>
                 <a href="#" v-on:click="readMoreandLess($event)">Ler mais...</a>

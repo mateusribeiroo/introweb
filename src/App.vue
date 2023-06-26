@@ -5,7 +5,7 @@ import FooterBar from './components/FooterBar.vue';
 </script>
 
 <template>
-  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  
   <HeaderBar />
 
   <RouterView />

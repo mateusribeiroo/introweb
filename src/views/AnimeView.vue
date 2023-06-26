@@ -1,6 +1,6 @@
 <script setup>
 import { useRoute } from 'vue-router';
-import { onBeforeMount, onMounted } from 'vue';
+import { onMounted, onUpdated} from 'vue';
 import api from '../services/api';
 
 const route = useRoute();
@@ -13,7 +13,7 @@ const fetchAnime = async () => {
     await api.get(`/anime/${mal_id}`).then((response) => {
         anime = response.data.data;
         console.log(anime)
-    })
+    });
 
 }
 
@@ -29,13 +29,14 @@ onMounted(fetchAnime);
     </div>
 
     <div>
-        {{ anime.synopsis }}
+         {{ anime.synopsis }}
     </div>
 
     <div>
-        Eps: {{ anime.episodes }}
-        Nota: {{ anime.score }}
+        <h4>Eps: {{ anime.episodes }}</h4>
+        <h4>Nota: {{ anime.score }}</h4>
     </div>
+   
 
 </template>
 

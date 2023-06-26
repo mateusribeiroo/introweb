@@ -6,7 +6,6 @@
   let anime_list = ref([]); 
   let searchAnimeField = ref("");
   let qtde_pages, has_next_page, page, per_page_var;
-  
   const fetchAnimes = async () => { 
     await api.get(`/anime?limit=25&order_by=rank&page=1`).then((response) => {
       anime_list.value = response.data.data;

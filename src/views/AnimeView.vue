@@ -1,6 +1,6 @@
 <script setup>
 import { useRoute } from 'vue-router';
-import { onMounted, onUpdated} from 'vue';
+import { onMounted} from 'vue';
 import api from '../services/api';
 
 const route = useRoute();
@@ -9,27 +9,24 @@ let mal_id = route.params.id;
 let anime = {};
 
 const fetchAnime = async () => {
-   
-    await api.get(`/anime/${mal_id}`).then((response) => {
-        anime = response.data.data;
+    anime = await api.get(`/anime/${mal_id}`)
+        .then(res => res.data.data);
         console.log(anime)
-    });
-
 }
 
-onMounted(fetchAnime);
+onMounted(fetchAnime)
 
 </script>
 
 <template>
 
     <div id="principal">
-        <img src="" alt="">
+        <img  alt="anime banner">
         <h2>{{ anime.title }}</h2>
     </div>
 
     <div>
-         {{ anime.synopsis }}
+        {{ anime.synopsis }}
     </div>
 
     <div>

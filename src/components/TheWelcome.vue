@@ -1,42 +1,28 @@
 <script setup>
   import AnimeCard from './AnimeCard.vue';
   import api from '../services/api';
-  import { computed, onMounted, ref } from 'vue';
+  import { ref } from 'vue';
 
   let anime_list = ref([]); 
   let searchAnimeField = ref("");
-  let qtde_pages, has_next_page, page, per_page_var;
-  const fetchAnimes = async () => { 
-    await api.get(`/anime?limit=25&order_by=rank&page=1`).then((response) => {
-      anime_list.value = response.data.data;
-      has_next_page = response.data.pagination;
-      qtde_pages = response.data.pagination.items.per_page/5;
-      per_page_var = response.data.pagination.items.per_page;
-    });
-  }
-  
-  onMounted(fetchAnimes);
-  
-  const filteredAnimes = computed(() => {
-    if(anime_list.value && searchAnimeField.value){
-      return anime_list.value.filter(anime => anime.title.toLowerCase().includes(searchAnimeField.value.toLowerCase()))
-    }
-    return anime_list.value
-  })
 
-  
+  const handleSearch = async () =>{
+    anime_list.value = await api.get(`/anime?q=${searchAnimeField.value}&limit=25`)
+      .then(data => data.data.data)
+  }
+
 </script>
 
 <template>   
 
-  <div class="mb-3">
+  <form class="mb-3"  @submit.prevent="handleSearch">
     <label for="searchAnimeField" hidden class="form-label"></label>
-    <input placeholder="Pesquisar..." class="form-control" type="text" v-model="searchAnimeField">
-  </div>
+    <input placeholder="Pesquisar..." class="form-control" type="search" v-model="searchAnimeField" >
+  </form>
 
   <div class="row row-cols-1 row-cols-md-3 g-4">
     <AnimeCard 
-      v-for="(item, index) in filteredAnimes" :key="index"
+      v-for="(item, index) in anime_list" :key="index"
       :title="item.title"
       :synopsis="item.synopsis"
       :jpg_image_url="item.images.jpg.image_url"

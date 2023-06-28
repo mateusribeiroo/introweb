@@ -5,13 +5,13 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <router-link class="navbar-brand" to="#">Hidden brand</router-link>
+            <router-link class="navbar-brand" to="#">Encontre seu anime</router-link>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <router-link class="nav-link active" to="/" >HOME</router-link>
+                <router-link class="nav-link active" to="/" >INÍCIO</router-link>
               </li>
               <li class="nav-item">
-                <router-link class="nav-link" to="/about">About</router-link>
+                <router-link class="nav-link" to="/about">Sobre Este Projeto</router-link>
               </li>
             </ul>
           </div>

@@ -15,7 +15,8 @@
 
 <template>   
 
-  <form class="mb-3"  @submit.prevent="handleSearch">
+  <main>
+    <form id="form" class="mb-3"  @submit.prevent="handleSearch">
     <label for="searchAnimeField" hidden class="form-label"></label>
     <input placeholder="Pesquisar..." class="form-control" type="search" v-model="searchAnimeField" >
   </form>
@@ -29,13 +30,23 @@
       :mal_id="item.mal_id"
     />
   </div>
+  </main>
 
 </template>
 
 <style>
+
+  main{
+    
+  }
+
+  #form{
+    margin: auto 2em;
+  }
+
   .align-center{
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 </style>
